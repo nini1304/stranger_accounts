@@ -21,10 +21,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
-          '/': (context) => start(),
+          '/': (context) => const start(),
           // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
-          '/second': (context) => login(),
-          '/third': (context) => register(),
+          '/second': (context) => const login(),
+          '/third': (context) => const register(),
         },
 
 
