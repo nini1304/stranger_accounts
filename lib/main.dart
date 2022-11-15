@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stranger_accounts/ui/login.dart';
-import 'package:stranger_accounts/ui/register.dart';
-import 'package:stranger_accounts/ui/start.dart';
+import 'package:stranger_accounts/ui/LoginPage.dart';
+import 'package:stranger_accounts/ui/StartPage.dart';
+
+
 
 
 void main() {
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
-          '/': (context) => const start(),
+          '/': (context) => const StartPage(),
           // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
-          '/second': (context) => const login(),
-          '/third': (context) => const register(),
+          '/second': (context) =>  LoginPage(),
+
         },
 
 
