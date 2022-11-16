@@ -18,6 +18,16 @@ class LoginCubit extends Cubit<LoginState> {
       // Aquí iría la llamada a la API para hacer el login
       // Si el login es exitoso, guardamos el token en el storage
       LoginResponseDto response = await LoginService.login(username, password);
+      // Si la autenticación fue exitosa Guardar el token y refresh
+      await storage.write(key: "TOKEN", value: response.token);
+      await storage.write(key: "REFRESH", value: response.refresh);
+      //emitimos el estado del cubit a los widgets
+      emit(state.copyWith(
+          loginSuccess: true,
+          status: PageStatus.success,
+          token: response.token,
+          refreshToken: response.refresh));
+      //en caso de haber un error se emite igualmente el estado correspondiente a los widgets
     } on Exception catch (ex) {
       emit(state.copyWith(
           loginSuccess: false,

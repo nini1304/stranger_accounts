@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StartPage extends StatelessWidget {
-
   const StartPage({Key? key}) : super(key: key);
 
   @override
@@ -20,13 +19,10 @@ class StartPage extends StatelessWidget {
         padding: const EdgeInsets.all(32),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'images/wallpaper.png'
-            ),
+            image: AssetImage('images/wallpaper.png'),
             fit: BoxFit.cover,
           ),
         ),
-
 
         //configurando un children para que tenga varios hijos usando un column
         child: Column(
@@ -35,7 +31,6 @@ class StartPage extends StatelessWidget {
           children: <Widget>[
             //cargamos el logo
             Image.asset(
-
               'images/logo.png',
               width: 350,
               height: 300,
@@ -49,9 +44,8 @@ class StartPage extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-
             ),
-           // creamos el boton de ingresar
+            // creamos el boton de ingresar
             Padding(
               padding: const EdgeInsets.all(20),
               child: ElevatedButton.icon(
@@ -60,20 +54,15 @@ class StartPage extends StatelessWidget {
                     size: 24,
                     color: Colors.white,
                   ),
-                  onPressed: () {
-
-                  },
-                  style: TextButton.styleFrom(
-
-                      backgroundColor: Color(0xff08D9D6)),
+                  onPressed: () {},
+                  style:
+                      TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
                   label: const Text(
-                    "INGRESAR",
+                    "Ingresar",
                     style: TextStyle(
                       fontSize: 24,
                     ),
-                  )
-              ),
-
+                  )),
             ),
 
             const Padding(
@@ -84,7 +73,6 @@ class StartPage extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-
             ),
 
             Padding(
@@ -95,26 +83,17 @@ class StartPage extends StatelessWidget {
                       size: 24,
                       color: Colors.white,
                     ),
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
-
                         backgroundColor: Color(0xffFF2E63)),
                     label: const Text(
-                      "REGISTRARSE",
+                      "Registrarse",
                       style: TextStyle(
                         fontSize: 24,
                       ),
-                    )
-                )
-
-            ),
-
+                    ))),
           ],
         ),
-
-
       ),
     );
   }

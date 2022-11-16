@@ -24,14 +24,14 @@ class LoginService {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     };
-    // Realizamos la invocación al Backend con los datos proporcionados.
+    // Realizamos la invocación por post al Backend con los datos proporcionados.
     var response = await http.post(uri, headers: headers, body: body);
     // Preguto si el backend dió exitosa la solicitud
     if (response.statusCode == 200) {
       // 200 significa que el backend proceso la solicitud.
-      // Decodifficamos el JSON a un objecto Response
+      // Decodifficamos el JSON a un objecto responseDto y guardamos todo el cuerpo  del ResponseDto
       var responseDto = ResponseDto.fromJson(jsonDecode(response.body));
-      // Preguto si el backend dió exitosa la solicitud
+      // Preguto si el backend autentico al usuario
       if (responseDto.success) {
         // Decodifcamos el data del objecto Response del backend y lo covertimos
         // a una clase Dart para retornarselo al CUBIT
