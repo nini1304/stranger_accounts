@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class StartPage extends StatelessWidget {
@@ -54,7 +54,9 @@ class StartPage extends StatelessWidget {
                     size: 24,
                     color: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/second');
+                  },
                   style:
                       TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
                   label: const Text(
