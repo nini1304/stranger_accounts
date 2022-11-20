@@ -78,9 +78,9 @@ class _LoginPageState extends State<LoginPage> {
       ),
 
       //configurando un children para que tenga varios hijos usando un column
-      child: Column(
+      child: ListView(
         // centreando el contenido
-        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           //cargamos el logo
           Image.asset(

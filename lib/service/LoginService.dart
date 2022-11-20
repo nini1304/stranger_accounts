@@ -6,15 +6,15 @@ import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
 
 class LoginService {
-  //el mirko me va a explicar
-  static const String backendUrlBase = "";
+  //union de ipv4 wifi y el puerto de la base de datos que en este caso esta en la nube
+  static const String backendUrlBase = "http://192.168.1.202:25060";
   //Creamos el future para que nos devuelva un LoginResponseDto
   static Future<LoginResponseDto> login(
       String username, String password) async {
     // guardaremos la respuesta en la variable result
     LoginResponseDto result;
     //guardamos en variables lo necesario para hacer el post
-    var uri = Uri.parse("$backendUrlBase/api/v1/auth/");
+    var uri = Uri.parse("$backendUrlBase/api/v1/loapi");
     var body = jsonEncode({
       'username': username,
       'password': password,

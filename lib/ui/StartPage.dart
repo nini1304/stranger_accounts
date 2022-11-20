@@ -25,9 +25,9 @@ class StartPage extends StatelessWidget {
         ),
 
         //configurando un children para que tenga varios hijos usando un column
-        child: Column(
+        child: ListView(
           // centreando el contenido
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             //cargamos el logo
             Image.asset(
@@ -54,7 +54,9 @@ class StartPage extends StatelessWidget {
                     size: 24,
                     color: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
                   style:
                       TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
                   label: const Text(
@@ -76,14 +78,16 @@ class StartPage extends StatelessWidget {
             ),
 
             Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: ElevatedButton.icon(
                     icon: const Icon(
                       Icons.add_reaction_outlined,
                       size: 24,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/third');
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: Color(0xffFF2E63)),
                     label: const Text(
