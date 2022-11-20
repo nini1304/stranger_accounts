@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
 
@@ -21,7 +20,11 @@ class MyApp extends StatelessWidget {
         // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
         '/': (context) => const StartPage(),
         // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
+<<<<<<< HEAD
         '/login': (context) => LoginPage(),
+=======
+        '/second': (context) => LoginPage(),
+>>>>>>> a2b32f952ffff777bc1358f850ce0e2c06b895b1
       },
     );
   }
