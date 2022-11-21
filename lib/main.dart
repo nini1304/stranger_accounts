@@ -21,14 +21,8 @@ class MyApp extends StatelessWidget {
         // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
         '/': (context) => const StartPage(),
         // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
-<<<<<<< HEAD
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
-=======
-
-        '/login': (context) => LoginPage(),
-        // '/register': (context) => ,
->>>>>>> 85172b35bf6ed2d102cfecd22f7b3850717919cb
       },
     );
   }

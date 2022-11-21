@@ -55,10 +55,7 @@ class StartPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                   onPressed: () {
-<<<<<<< HEAD
                     //Navigator.pushNamed(context, '/login');
-=======
->>>>>>> 85172b35bf6ed2d102cfecd22f7b3850717919cb
                     Navigator.pushNamed(context, '/login');
                   },
                   style:
