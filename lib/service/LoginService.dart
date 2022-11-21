@@ -1,20 +1,19 @@
+// ignore: file_names
 import 'dart:convert';
-
 import '../dto/LoginResponseDto.dart';
 import 'package:http/http.dart' as http;
-
 import '../dto/ResponseDto.dart';
 
 class LoginService {
   //el mirko me va a explicar
-  static const String backendUrlBase = "";
+  static const String backendUrlBase = "http://192.168.31.149:25060";
   //Creamos el future para que nos devuelva un LoginResponseDto
   static Future<LoginResponseDto> login(
       String username, String password) async {
     // guardaremos la respuesta en la variable result
     LoginResponseDto result;
     //guardamos en variables lo necesario para hacer el post
-    var uri = Uri.parse("$backendUrlBase/api/v1/auth/");
+    var uri = Uri.parse("$backendUrlBase/api/v1/loapi");
     var body = jsonEncode({
       'username': username,
       'password': password,

@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               // Si el cubit dice que la autenticación fue correcta,
               // se va a la pagian princial
               Navigator.pop(context1); // quito el dialog
-              Navigator.pushNamed(context1, '/home');
+              Navigator.pushReplacementNamed(context1, '/home');
             } else {
               // Si el cubit dice que hubo error se lo muestra.
               Navigator.pop(context1); // quito el dialog

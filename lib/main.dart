@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
+import 'package:stranger_accounts/ui/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
         '/': (context) => const StartPage(),
         // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
-        '/second': (context) => LoginPage(),
+        '/login': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
       },
     );
   }
