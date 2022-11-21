@@ -13,11 +13,25 @@ project_type: app
 migration:
   platforms:
     - platform: root
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      create_revision: ffccd96b62ee8cec7740dab303538c5fc26ac543
+      base_revision: ffccd96b62ee8cec7740dab303538c5fc26ac543
+    - platform: web
+      create_revision: ffccd96b62ee8cec7740dab303538c5fc26ac543
+      base_revision: ffccd96b62ee8cec7740dab303538c5fc26ac543
+=======
+>>>>>>> 85172b35bf6ed2d102cfecd22f7b3850717919cb
       create_revision: 52b3dc25f6471c27b2144594abb11c741cb88f57
       base_revision: 52b3dc25f6471c27b2144594abb11c741cb88f57
     - platform: web
       create_revision: 52b3dc25f6471c27b2144594abb11c741cb88f57
       base_revision: 52b3dc25f6471c27b2144594abb11c741cb88f57
+<<<<<<< HEAD
+=======
+>>>>>>> a2b32f952ffff777bc1358f850ce0e2c06b895b1
+>>>>>>> 85172b35bf6ed2d102cfecd22f7b3850717919cb
 
   # User provided section
 

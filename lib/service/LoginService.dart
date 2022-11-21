@@ -5,8 +5,13 @@ import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
 
 class LoginService {
+<<<<<<< HEAD
   //el mirko me va a explicar
   static const String backendUrlBase = "http://192.168.31.149:25060";
+=======
+  //union de ipv4 wifi y el puerto de la base de datos que en este caso esta en la nube
+  static const String backendUrlBase = "http://192.168.1.202:25060";
+>>>>>>> 85172b35bf6ed2d102cfecd22f7b3850717919cb
   //Creamos el future para que nos devuelva un LoginResponseDto
   static Future<LoginResponseDto> login(
       String username, String password) async {
