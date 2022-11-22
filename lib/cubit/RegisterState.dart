@@ -8,36 +8,32 @@ class RegisterState extends Equatable {
   final String? errorMessage;
   final Exception? exception;
 
-
   const RegisterState({
     this.status = PageStatus.initial,
     this.registerSuccess = false,
     this.errorMessage,
     this.exception,
-
   });
 
   RegisterState copyWith({
     PageStatus? status,
-    bool? loginSuccess,
+    bool? registerSuccess,
     String? errorMessage,
     Exception? exception,
-
   }) {
     return RegisterState(
       status: status ?? this.status,
-      registerSuccess: loginSuccess ?? this.registerSuccess,
+      registerSuccess: registerSuccess ?? this.registerSuccess,
       errorMessage: errorMessage ?? this.errorMessage,
       exception: exception ?? this.exception,
-
     );
   }
+
   @override
   List<Object?> get props => [
-    status,
-    registerSuccess,
-    errorMessage,
-    exception,
-
-  ];
+        status,
+        registerSuccess,
+        errorMessage,
+        exception,
+      ];
 }
