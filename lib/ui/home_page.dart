@@ -17,7 +17,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Menu principal"),
+        title: const Text('Menú Principal'),
+        backgroundColor: const Color(0xff252A34),
       ),
       drawer: const MenuLateral(),
       body: Center(
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                         //imagen dentro del boton
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/newOrder");
+                        Navigator.pushNamed(context, "/streaming");
                       },
                       child: Column(
                         children: [
@@ -81,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                         //imagen dentro del boton
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/newOrder");
+                        Navigator.pushNamed(context, "/gaming");
                       },
                       child: Column(
                         children: [
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                         //imagen dentro del boton
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/newOrder");
+                        Navigator.pushNamed(context, "/music");
                       },
                       child: Column(
                         children: [

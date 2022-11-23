@@ -14,7 +14,7 @@ class _MenuLateralState extends State<MenuLateral> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
