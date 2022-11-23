@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               showDialog(
                 context: context,
                 builder: (context1) => const AlertDialog(
-                  title: Text('Cargando'),
+                  title: Text('Iniciando'),
                   content: Text('Espere un momento'),
                 ),
               );
@@ -122,13 +122,14 @@ class _LoginPageState extends State<LoginPage> {
             child: TextFormField(
               controller: _passwordController,
               decoration: const InputDecoration(border: OutlineInputBorder()),
+              obscureText: true,
             ),
           ),
           Padding(
               padding: EdgeInsets.all(6),
               child: ElevatedButton.icon(
                   icon: const Icon(
-                    Icons.add_reaction_outlined,
+                    Icons.app_shortcut,
                     size: 24,
                     color: Colors.white,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
+import 'package:stranger_accounts/ui/RegisterPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
 import 'package:stranger_accounts/ui/home_page.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(),
+        '/register': (context) => RegisterPage(),
       },
     );
   }
