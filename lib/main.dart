@@ -3,6 +3,7 @@ import 'package:stranger_accounts/ui/LoginPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
 import 'package:stranger_accounts/ui/gaming_page.dart';
 import 'package:stranger_accounts/ui/home_page.dart';
+import 'package:stranger_accounts/ui/item_page.dart';
 import 'package:stranger_accounts/ui/music_page.dart';
 import 'package:stranger_accounts/ui/streaming_page.dart';
 
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/gaming': (context) => const GamingPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de music
         '/music': (context) => const MusicPage(),
+        //la siguiente ruta nos dirige a la pagina de items
+        '/items': (context) => const ItemPage(),
       },
     );
   }

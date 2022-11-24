@@ -47,14 +47,7 @@ android {
         applicationId "com.example.stranger_accounts"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-<<<<<<< HEAD
         minSdkVersion 18  
-=======
-
-        minSdkVersion 18  
-        minSdkVersion 18
-
->>>>>>> 92cdb9f72ee5cdff4c6b30e94b3b2dda96f8be47
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

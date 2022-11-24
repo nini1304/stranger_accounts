@@ -22,26 +22,24 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: const MenuLateral(),
       body: Center(
-        child: // Build menu with icons
-            Column(
+        child: Column(
           children: [
             //espacio
             const SizedBox(
               height: 0,
             ),
-            //carpeta de images
-            //IMAGEN PENDIENTE
             Image.network(
               "https://thumbs.dreamstime.com/b/icono-del-var%C3%B3n-del-usuario-ninguna-cara-43652345.jpg",
               width: 405,
-              height: 200,
+              height: 220,
               fit: BoxFit.fill,
             ),
             //ESPACIO ENTRE IMAGEN Y BOTONES
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
+              //espacio ajustable entre botones
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //boton 1
@@ -61,8 +59,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.network(
                             "https://d500.epimg.net/cincodias/imagenes/2019/07/11/lifestyle/1562841657_226036_1562841728_noticia_normal.jpg",
-                            width: 150,
-                            height: 120,
+                            width: 130,
+                            height: 130,
                             fit: BoxFit.fill,
                           ),
                           const Text("Streaming"),
@@ -88,8 +86,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.network(
                             "https://10beasts.com/images/Consoles-Gamepads-Illustration-300x300.png",
-                            width: 150,
-                            height: 120,
+                            width: 130,
+                            height: 130,
                             fit: BoxFit.fill,
                           ),
                           const Text("Gaming"),
@@ -102,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
             //espacio entre botones
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -124,8 +122,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.network(
                             "https://i.insider.com/5ee8f1bd3ad8610d80629a57?width=1136&format=jpeg",
-                            width: 150,
-                            height: 120,
+                            width: 130,
+                            height: 130,
                             fit: BoxFit.fill,
                           ),
                           const Text("Music"),
@@ -145,14 +143,14 @@ class _HomePageState extends State<HomePage> {
                         //imagen dentro del boton
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/newOrder");
+                        Navigator.pushNamed(context, "/items");
                       },
                       child: Column(
                         children: [
                           Image.network(
                             "https://cdn0.iconfinder.com/data/icons/web-social-and-folder-icons/512/Oyun.png",
-                            width: 150,
-                            height: 120,
+                            width: 130,
+                            height: 130,
                             fit: BoxFit.fill,
                           ),
                           const Text("Store"),
