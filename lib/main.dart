@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         //la siguiente ruta nos dirige al menu principal
         '/home': (context) => HomePage(),
-
+        //la siguiente ruta nos dirige a la pestaña de registro
         '/register': (context) => RegisterPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de streaming
         '/streaming': (context) => const StreamingPage(),
