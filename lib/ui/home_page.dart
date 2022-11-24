@@ -28,11 +28,16 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 0,
             ),
-            Image.network(
-              "https://thumbs.dreamstime.com/b/icono-del-var%C3%B3n-del-usuario-ninguna-cara-43652345.jpg",
-              width: 405,
-              height: 220,
-              fit: BoxFit.fill,
+            //imagen de cabecera
+            Container(
+              width: 600,
+              height: 230,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/sa.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             //ESPACIO ENTRE IMAGEN Y BOTONES
             const SizedBox(
