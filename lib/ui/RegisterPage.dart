@@ -42,8 +42,8 @@ class _RegisterPageState extends State<RegisterPage> {
               showDialog(
                 context: context,
                 builder: (context1) => const AlertDialog(
-                  title: Text('Registrado correctamente'),
-                  content: Text('Inicie sesion para comenzar!'),
+                  title: Text('Registrando....'),
+                  content: Text('Debe iniciar sesion para comenzar'),
                 ),
               );
             } else if (state.status == PageStatus.success &&
@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
               showDialog(
                 context: context,
                 builder: (context1) => const AlertDialog(
-                  title: Text('Error'),
+                  title: Text('No se pudo registrar'),
                   content: Text('Intente de nuevo'),
                 ),
               );
@@ -188,7 +188,6 @@ class _RegisterPageState extends State<RegisterPage> {
             child: TextFormField(
               controller: _phoneController,
               decoration: const InputDecoration(border: OutlineInputBorder()),
-              obscureText: true,
             ),
           ),
           Padding(

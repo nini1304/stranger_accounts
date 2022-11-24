@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               showDialog(
                 context: context,
                 builder: (context1) => const AlertDialog(
-                  title: Text('Iniciando'),
+                  title: Text('Iniciando....'),
                   content: Text('Espere un momento'),
                 ),
               );
@@ -54,8 +54,8 @@ class _LoginPageState extends State<LoginPage> {
               showDialog(
                 context: context,
                 builder: (context1) => const AlertDialog(
-                  title: Text('Error'),
-                  content: Text('Intente de nuevo'),
+                  title: Text('Usuario no encontrado'),
+                  content: Text('Usuario o contraseña incorrectos'),
                 ),
               );
             }
@@ -125,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
           ),
+
           Padding(
               padding: EdgeInsets.all(6),
               child: ElevatedButton.icon(
@@ -142,6 +143,25 @@ class _LoginPageState extends State<LoginPage> {
                       TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
                   label: const Text(
                     "Ingresar",
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ))),
+          Padding(
+              padding: EdgeInsets.all(6),
+              child: ElevatedButton.icon(
+                  icon: const Icon(
+                    Icons.app_shortcut,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/verifyuser');
+                  },
+                  style:
+                      TextButton.styleFrom(backgroundColor: Color(0xffFF2E63)),
+                  label: const Text(
+                    "Olvide mi Contraseña",
                     style: TextStyle(
                       fontSize: 24,
                     ),

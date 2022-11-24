@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
 import 'package:stranger_accounts/ui/RegisterPage.dart';
+import 'package:stranger_accounts/ui/RestorePassPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
+import 'package:stranger_accounts/ui/VerifyCodePage.dart';
+import 'package:stranger_accounts/ui/VerifyUserPage.dart';
 import 'package:stranger_accounts/ui/gaming_page.dart';
 import 'package:stranger_accounts/ui/home_page.dart';
 import 'package:stranger_accounts/ui/item_page.dart';
@@ -27,10 +30,17 @@ class MyApp extends StatelessWidget {
         '/': (context) => const StartPage(),
         // Cuando naveguemos hacia la ruta "/login", crearemos el Widget SecondScreen
         '/login': (context) => LoginPage(),
-        //la siguiente ruta nos dirige al menu principal
-        '/home': (context) => HomePage(),
+        //la siguiente ruta nos dirige a la pestaña de verificar email
+        '/verifyuser': (context) => VerifyUserPage(),
+        //la siguiente ruta nos dirige a la pestaña de verificar codifo de verificacion
+        '/verifycode': (context) => VerifyCodePage(),
+        //la siguiente ruta nos dirige a la pestaña de restablecer contraseña
+        '/restorepass': (context) => RestorePassPage(),
         //la siguiente ruta nos dirige a la pestaña de registro
         '/register': (context) => RegisterPage(),
+        //la siguiente ruta nos dirige al menu principal
+        '/home': (context) => HomePage(),
+
         //la siguiente ruta nos dirige a la pagina de servicios de streaming
         '/streaming': (context) => const StreamingPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de gaming
