@@ -6,7 +6,7 @@ import '../dto/ResponseDto.dart';
 
 class LoginService {
   //el mirko me va a explicar
-  static const String backendUrlBase = "http://192.168.1.202:25060";
+  static const String backendUrlBase = "http://192.168.118.211:25060";
   //Creamos el future para que nos devuelva un LoginResponseDto
   static Future<LoginResponseDto> login(
       String username, String password) async {
