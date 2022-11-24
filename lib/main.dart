@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
+import 'package:stranger_accounts/ui/RegisterPage.dart';
 import 'package:stranger_accounts/ui/StartPage.dart';
 import 'package:stranger_accounts/ui/gaming_page.dart';
 import 'package:stranger_accounts/ui/home_page.dart';
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         //la siguiente ruta nos dirige al menu principal
         '/home': (context) => HomePage(),
+
+        '/register': (context) => RegisterPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de streaming
         '/streaming': (context) => const StreamingPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de gaming
