@@ -41,7 +41,7 @@ class _MenuLateralState extends State<MenuLateral> {
             padding: EdgeInsets.all(0),
           ),
           Text(
-            'Usuario',
+            'Bienvenido',
             style: TextStyle(
               fontSize: 24,
               color: Colors.black,
@@ -65,7 +65,11 @@ class _MenuLateralState extends State<MenuLateral> {
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text('Salir'),
+            title: Text('Cerrar sesión'),
+            onTap: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/login', (Route<dynamic> route) => false);
+            },
           ),
         ],
       ),

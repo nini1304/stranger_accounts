@@ -28,6 +28,10 @@ class GamingCard extends StatelessWidget {
         children: [
           Row(
             children: [
+              //espacio a la izquierda (margen y texto)
+              const SizedBox(
+                width: 10,
+              ),
               Column(
                 // ignore: sort_child_properties_last
                 children: [

@@ -25,66 +25,43 @@ class StreamingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Navigator.pushNamed(context, '/login'),
+        Navigator.pushNamed(
+          context,
+          '/customize',
+        )
       },
       child: Column(
         children: [
           Row(
             children: [
-              Container(
-                child: Column(
-                  children: [
-                    Text(
-                      platformName,
-                      style: const TextStyle(
-                          fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      planPrice,
-                      style: const TextStyle(
-                          fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                  //alineamos los elementos de la columna a la izquierda
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                ),
-                width: 220,
-                height: 45,
-                //decoracion del contenedor
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(4),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 8,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
+              //espacio a la izquierda (margen y texto)
+              const SizedBox(
+                width: 10,
+              ),
+              Column(
+                children: [
+                  Text(
+                    platformName,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    planPrice,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
+                //alineamos los elementos de la columna a la izquierda
+                crossAxisAlignment: CrossAxisAlignment.start,
               ),
               //definimos el espacio entre las columnas
               const SizedBox(
-                width: 15,
+                width: 50,
               ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                child: Image.network(
-                  picture,
-                  width: 100,
-                  height: 100,
-                ),
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(width: 1.0, color: Color(0xFF000000)),
-                    left: BorderSide(width: 1.0, color: Color(0xFF000000)),
-                    right: BorderSide(width: 1.0, color: Color(0xFF000000)),
-                    bottom: BorderSide(width: 1.0, color: Color(0xFF000000)),
-                  ),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                ),
+              Image.network(
+                picture,
+                width: 120,
+                height: 120,
               ),
             ],
           ),

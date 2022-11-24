@@ -6,6 +6,7 @@ import 'package:stranger_accounts/ui/gaming_page.dart';
 import 'package:stranger_accounts/ui/home_page.dart';
 import 'package:stranger_accounts/ui/item_page.dart';
 import 'package:stranger_accounts/ui/music_page.dart';
+import 'package:stranger_accounts/ui/plans_page.dart';
 import 'package:stranger_accounts/ui/streaming_page.dart';
 
 void main() {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         //la siguiente ruta nos dirige al menu principal
         '/home': (context) => HomePage(),
         //la siguiente ruta nos dirige a la pestaña de registro
-        '/register': (context) => RegisterPage(),
+        //'/register': (context) => RegisterPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de streaming
         '/streaming': (context) => const StreamingPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de gaming
@@ -39,6 +40,8 @@ class MyApp extends StatelessWidget {
         '/music': (context) => const MusicPage(),
         //la siguiente ruta nos dirige a la pagina de items
         '/items': (context) => const ItemPage(),
+        //la siguiente ruta nos dirige a la pagina de personalizacion de plan
+        '/customize': (context) => const PlansPage(),
       },
     );
   }

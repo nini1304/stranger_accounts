@@ -45,8 +45,8 @@ class ItemCard extends StatelessWidget {
               Container(
                 //espacio entre imagen y tarjeta
                 margin: const EdgeInsets.all(10),
-                height: 130,
-                width: 130,
+                height: 145,
+                width: 145,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(picture),
@@ -71,6 +71,17 @@ class ItemCard extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                ),
+              ),
+              Center(
+                //boton de agregar al carrito
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(76, 201, 240, 1),
+                    onPrimary: Colors.white,
+                  ),
+                  onPressed: () {},
+                  child: const Text('Agregar al carrito'),
                 ),
               ),
             ],
