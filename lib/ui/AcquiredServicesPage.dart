@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stranger_accounts/cubit/AcquiredCubit.dart';
 import 'package:stranger_accounts/cubit/AcquiredState.dart';
 import '../cubit/PageStatus.dart';
+//page to show the acquired services
 
 class AcquiredServicesPage extends StatefulWidget {
   const AcquiredServicesPage({super.key});
