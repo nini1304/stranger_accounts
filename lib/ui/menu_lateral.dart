@@ -68,7 +68,7 @@ class _MenuLateralState extends State<MenuLateral> {
             title: Text('Cerrar sesión'),
             onTap: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/login', (Route<dynamic> route) => false);
+                  '/', (Route<dynamic> route) => false);
             },
           ),
         ],

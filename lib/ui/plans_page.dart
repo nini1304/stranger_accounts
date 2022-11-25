@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stranger_accounts/ui/widget/plans_card.dart';
+
 import '../cubit/PageStatus.dart';
 import '../cubit/plans_cubit.dart';
 import '../cubit/plans_state.dart';
@@ -17,37 +19,43 @@ class _PlansPageState extends State<PlansPage> {
   final plansCubit = PlansCubit();
   @override
   void initState() {
+    // TODO: implement initState
     plansCubit.plans();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-      child: BlocBuilder<PlansCubit, PlansState>(
+    return Scaffold(
+      body: BlocConsumer<PlansCubit, PlansState>(
         bloc: plansCubit,
-        builder: (context, state) {
+        listener: (BuildContext context, PlansState state) {
+          if (state.status == PageStatus.failure) {
+            //PENDIENTE
+          }
+        },
+        builder: (BuildContext context, PlansState state) {
           if (state.status == PageStatus.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state.status == PageStatus.success) {
-            return ListView.builder(
-              itemCount: state.data.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(state.data[index].durationLabel),
-                  subtitle: Text(state.data[index].price.toString()),
-                );
-              },
-            );
-          } else {
-            return const Center(
-              child: Text('Error'),
-            );
           }
+          return ListView.builder(
+            itemCount: state.data.length,
+            itemBuilder: (context, index) {
+              return PlansCard(
+                  plansId: state.data[index].plansId,
+                  days: state.data[index].days,
+                  price: state.data[index].price,
+                  durationLabel: state.data[index].durationLabel,
+                  serviceId: state.data[index].serviceId);
+            },
+          );
         },
+      ),
+      appBar: AppBar(
+        title: const Text('Servicios de Music'),
+        backgroundColor: const Color(0xff252A34),
       ),
     );
   }

@@ -4,15 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:stranger_accounts/ui/widget/getId.dart';
 
 class StreamingCard extends StatelessWidget {
   final int serviceId;
   final String platformName;
   final String planPrice;
   final String picture;
-
-  // ignore: prefer_const_constructors_in_immutables
-  StreamingCard(
+  const StreamingCard(
       {Key? key,
       required this.serviceId,
       required this.platformName,
@@ -23,6 +23,8 @@ class StreamingCard extends StatelessWidget {
 //se crea el widget que se va a mostrar en la pantalla
   @override
   Widget build(BuildContext context) {
+    Controller controller = Get.put(Controller());
+    controller.setServicesId(serviceId);
     return GestureDetector(
       onTap: () => {
         Navigator.pushNamed(
@@ -41,7 +43,7 @@ class StreamingCard extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    platformName,
+                    "$serviceId: $platformName",
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
