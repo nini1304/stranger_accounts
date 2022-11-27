@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/LoginCubit.dart';
-
 import '../cubit/LoginState.dart';
 import '../cubit/PageStatus.dart';
 
@@ -29,7 +28,6 @@ class _LoginPageState extends State<LoginPage> {
           title: const Text('Ingresar'),
           backgroundColor: const Color(0xff252A34),
         ),
-
         //Este una union entre BlocBuilder y BlocListener. Este se utiliza cuando queremos dibujar
         // algo con base al estado (OrdersState) y por otra parte queremos tomar acciones (e.g. Reportar Analytics) con base al estado.
         body: BlocConsumer<LoginCubit, LoginState>(
@@ -84,76 +82,90 @@ class _LoginPageState extends State<LoginPage> {
         // centreando el contenido
         //mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            child: //cargamos el logo
-                Image.asset(
-              'images/logo.png',
-              width: 350,
-              height: 300,
+          //cargamos el logo
+          Image.asset(
+            'images/logo.png',
+            width: 350,
+            height: 300,
+          ),
+          // creamos un texto
+          const Padding(
+            padding: EdgeInsets.all(6),
+            child: Text(
+              "Ingrese su correo:",
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Color(0xffB2B2B2),
-                  width: 4,
-                ),
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              children: <Widget>[
-                //creando un textfield para el usuario
-                TextField(
-                  controller: _usernameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Usuario',
-                    icon: Icon(Icons.person),
-                  ),
-                ),
-                //creando un textfield para la contraseña
-                TextField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(
-                    labelText: 'Contraseña',
-                    icon: Icon(Icons.lock),
-                  ),
-                  obscureText: true,
-                ),
-                //creando un boton para el login
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      //cuando se presione el boton se llama al cubit
-                      BlocProvider.of<LoginCubit>(context).login(
-                          _usernameController.text, _passwordController.text);
-                    },
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xff08D9D6),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(20))),
-                    child: const Text('Ingresar'),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/verifyuser');
-                    },
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xffFF2E63),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(20)),
-                        padding: const EdgeInsets.all(8)),
-                    child: const Text('Olvide mi contraseña'),
-                  ),
-                ),
-              ],
+          // creamos el boton de ingresar
+          Padding(
+            padding: const EdgeInsets.all(6),
+            child: TextFormField(
+              controller: _usernameController,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
             ),
           ),
+
+          const Padding(
+            padding: EdgeInsets.all(6),
+            child: Text(
+              "Ingrese su contrasena :",
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(6),
+            child: TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+              obscureText: true,
+            ),
+          ),
+
+          Padding(
+              padding: EdgeInsets.all(6),
+              child: ElevatedButton.icon(
+                  icon: const Icon(
+                    Icons.app_shortcut,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    //cuando se presione el boton se ejecuta el cubit
+                    BlocProvider.of<LoginCubit>(context).login(
+                        _usernameController.text, _passwordController.text);
+                  },
+                  style:
+                      TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
+                  label: const Text(
+                    "Ingresar",
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ))),
+          Padding(
+              padding: EdgeInsets.all(6),
+              child: ElevatedButton.icon(
+                  icon: const Icon(
+                    Icons.app_shortcut,
+                    size: 24,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/verifyuser');
+                  },
+                  style:
+                      TextButton.styleFrom(backgroundColor: Color(0xffFF2E63)),
+                  label: const Text(
+                    "Olvide mi Contraseña",
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  ))),
         ],
       ),
     );
