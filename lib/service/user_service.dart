@@ -6,6 +6,9 @@ import '../dto/user_info_dato.dart';
 
 class UserService {
   static const String backendUrlBase = "http://192.168.1.202:25060";
+
+  static const String backendUrlBase = "http://192.168.118.211:25060";
+
   Future<UserInfoDto> getUserInfo(String token) async {
     UserInfoDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/reapi/");

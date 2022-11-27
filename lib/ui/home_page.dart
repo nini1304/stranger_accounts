@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                       //estilo de boton
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.purple,
+                        primary: Color.fromRGBO(100, 223, 223, 1),
                         onPrimary: Colors.white,
                         //imagen dentro del boton
                       ),
@@ -68,7 +68,10 @@ class _HomePageState extends State<HomePage> {
                             height: 130,
                             fit: BoxFit.fill,
                           ),
-                          const Text("Streaming"),
+                          const Text("Streaming",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(255, 0, 110, 1))),
                         ],
                       ),
                     ),
@@ -80,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                       //estilo de boton
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.purple,
+                        primary: Color.fromRGBO(100, 223, 223, 1),
                         onPrimary: Colors.white,
                         //imagen dentro del boton
                       ),
@@ -95,7 +98,10 @@ class _HomePageState extends State<HomePage> {
                             height: 130,
                             fit: BoxFit.fill,
                           ),
-                          const Text("Gaming"),
+                          const Text("Gaming",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(255, 0, 110, 1))),
                         ],
                       ),
                     ),
@@ -116,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                       //estilo de boton
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.purple,
+                        primary: Color.fromRGBO(100, 223, 223, 1),
                         onPrimary: Colors.white,
                         //imagen dentro del boton
                       ),
@@ -131,7 +137,10 @@ class _HomePageState extends State<HomePage> {
                             height: 130,
                             fit: BoxFit.fill,
                           ),
-                          const Text("Music"),
+                          const Text("Music",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(255, 0, 110, 1))),
                         ],
                       ),
                     ),
@@ -143,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                       //estilo de boton
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.purple,
+                        primary: Color.fromRGBO(100, 223, 223, 1),
                         onPrimary: Colors.white,
                         //imagen dentro del boton
                       ),
@@ -158,7 +167,10 @@ class _HomePageState extends State<HomePage> {
                             height: 130,
                             fit: BoxFit.fill,
                           ),
-                          const Text("Store"),
+                          const Text("Store",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(255, 0, 110, 1))),
                         ],
                       ),
                     ),

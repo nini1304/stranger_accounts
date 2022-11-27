@@ -1,16 +1,18 @@
 import 'dart:convert';
-import 'dart:developer';
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-
 import '../dto/PlansDto.dart';
+import 'package:get/get.dart';
+import 'package:stranger_accounts/ui/widget/getId.dart';
 
 class PlansService {
-  static const String backendUrlBase = "http://192.168.31.149:25060";
+  Controller controller = Get.put(Controller());
+  static const String backendUrlBase = "http://192.168.118.211:25060";
 
   Future<List<PlansDto>> getPlanList() async {
     List<PlansDto> result;
-    var uri = Uri.parse("$backendUrlBase/api/v1/plans/");
+    var uri =
+        Uri.parse("$backendUrlBase/api/v1/plans/${controller.servicesId}");
+    print("efe: ${controller.servicesId}");
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -18,9 +20,7 @@ class PlansService {
     };
     // Invocamos al backend
     var response = await http.get(uri, headers: headers);
-    print(response.statusCode);
     if (response.statusCode == 200) {
-      print("hola1:$response.body");
       // El backend procesó la solicitud entonces decodificamos
       var backendResponse = jsonDecode(response.body);
       // Si el backend me envió la información de los servicios de streaming lo extraemos
@@ -30,7 +30,6 @@ class PlansService {
         result = (backendResponse['data'] as List)
             .map((e) => PlansDto.fromJson(e))
             .toList();
-        print("hola2:$result");
       } else {
         // Si el backend envíe error (success = true), entonces seguramente
         // envió un message para mostrarle a nuestra usuario final

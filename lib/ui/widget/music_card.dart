@@ -22,7 +22,7 @@ class MusicCard extends StatelessWidget {
     // TODO: implement build
     return GestureDetector(
       onTap: () => {
-        Navigator.pushNamed(context, '/login'),
+        Navigator.pushNamed(context, '/customize'),
       },
       child: Column(
         children: [

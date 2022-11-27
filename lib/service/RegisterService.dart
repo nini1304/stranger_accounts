@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
 
 class RegisterService {
-  static const String backendUrlBase = "http://192.168.1.202:25060";
+  static const String backendUrlBase = "http://192.168.118.211:25060";
   static Future<ResponseDto> register(String picture, String name,
       String lastname, String username, String password, String phone) async {
     ResponseDto result;
