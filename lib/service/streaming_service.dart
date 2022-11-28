@@ -4,7 +4,7 @@ import '../dto/StreamingDto.dart';
 import 'package:http/http.dart' as http;
 
 class StreamingService {
-  static const String backendUrlBase = "http://192.168.118.211:25060";
+  static const String backendUrlBase = "http://192.168.1.202:25060";
   Future<List<StreamingDto>> getStreamingList() async {
     List<StreamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/streaming/");

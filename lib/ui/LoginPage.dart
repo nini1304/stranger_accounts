@@ -132,9 +132,10 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     style: TextButton.styleFrom(
                         backgroundColor: Color(0xff08D9D6),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(20))),
-                    child: const Text('Ingresar'),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    child: const Text('          Ingresar          ',
+                        style: TextStyle(fontSize: 20)),
                   ),
                 ),
                 Padding(
@@ -145,10 +146,10 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     style: TextButton.styleFrom(
                         backgroundColor: Color(0xffFF2E63),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(20)),
-                        padding: const EdgeInsets.all(8)),
-                    child: const Text('Olvide mi contraseña'),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    child: const Text('Olvide mi contraseña',
+                        style: TextStyle(fontSize: 20)),
                   ),
                 ),
               ],

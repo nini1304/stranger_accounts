@@ -42,11 +42,6 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterPage(),
         //la siguiente ruta nos dirige al menu principal
         '/home': (context) => HomePage(),
-
-        '/register': (context) => RegisterPage(),
-        //la siguiente ruta nos dirige al menu principal
-        '/home': (context) => HomePage(),
-
         //la siguiente ruta nos dirige a la pagina de servicios de streaming
         '/streaming': (context) => const StreamingPage(),
         //la siguiente ruta nos dirige a la pagina de servicios de gaming

@@ -86,136 +86,100 @@ class _RegisterPageState extends State<RegisterPage> {
         //mainAxisAlignment: MainAxisAlignment.center,
         //configurando un children para que tenga varios hijos usando un column
         children: <Widget>[
-          Padding(
-              padding: EdgeInsets.all(6),
-              child: ElevatedButton.icon(
-                  icon: const Icon(
-                    Icons.add_a_photo_outlined,
-                    size: 24,
-                    color: Colors.white,
+          Container(
+            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Color(0xffB2B2B2),
+                  width: 4,
+                ),
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                    padding: EdgeInsets.all(20),
+                    child: ElevatedButton.icon(
+                        icon: const Icon(
+                          Icons.add_a_photo_outlined,
+                          size: 24,
+                          color: Colors.white,
+                        ),
+                        onPressed: () async {
+                          //Usamos ImagePicker para poder seleccionar una imagen de la galeria
+                          final ImagePicker _picker = ImagePicker();
+                          final XFile? image = await _picker.pickImage(
+                              source: ImageSource.gallery);
+                          _pictureController.text = image!.path;
+                        },
+                        style: TextButton.styleFrom(
+                            backgroundColor: Color(0xffFF2E63),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        label: const Text(
+                          "Elegir Foto de Perfil",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ))),
+                TextField(
+                  controller: _nameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Ingrese su nombre',
                   ),
-                  onPressed: () async {
-                    //Usamos ImagePicker para poder seleccionar una imagen de la galeria
-                    final ImagePicker _picker = ImagePicker();
-                    final XFile? image =
-                        await _picker.pickImage(source: ImageSource.gallery);
-                    _pictureController.text = image!.path;
-                  },
-                  style:
-                      TextButton.styleFrom(backgroundColor: Color(0xffFF2E63)),
-                  label: const Text(
-                    "Elegir Foto de Perfil",
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
-                  ))),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su nombre:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _nameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su apellido:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _lastnameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su email:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _usernameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su contrasena:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-              obscureText: true,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su celular:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _phoneController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          Padding(
-              padding: EdgeInsets.all(10),
-              child: ElevatedButton.icon(
-                  icon: const Icon(
-                    Icons.add_reaction_outlined,
-                    size: 24,
-                    color: Colors.white,
+                ),
+                TextField(
+                  controller: _lastnameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Ingrese su apellido',
                   ),
-                  onPressed: () {
-                    //cuando se presione el boton se ejecuta el cubit
-                    BlocProvider.of<RegisterCubit>(context).register(
-                        _pictureController.text,
-                        _nameController.text,
-                        _lastnameController.text,
-                        _usernameController.text,
-                        _passwordController.text,
-                        _phoneController.text);
-                  },
-                  style:
-                      TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
-                  label: const Text(
-                    "Registrarse",
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
-                  ))),
+                ),
+                TextField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Ingrese su email',
+                  ),
+                ),
+                TextField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    labelText: 'Ingrese su contraseña',
+                  ),
+                  obscureText: true,
+                ),
+                TextField(
+                  controller: _phoneController,
+                  decoration: const InputDecoration(
+                    labelText: 'Ingrese su numero de celular',
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.all(20),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          //cuando se presione el boton se ejecuta el cubit
+                          BlocProvider.of<RegisterCubit>(context).register(
+                              _pictureController.text,
+                              _nameController.text,
+                              _lastnameController.text,
+                              _usernameController.text,
+                              _passwordController.text,
+                              _phoneController.text);
+                        },
+                        style: TextButton.styleFrom(
+                            backgroundColor: Color(0xff08D9D6),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        child: const Text(
+                          "Registrarse",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ))),
+              ],
+            ),
+          ),
         ],
       ),
     );
