@@ -14,7 +14,9 @@ class VerifyUserPage extends StatefulWidget {
 }
 
 class _VerifyUserPageState extends State<VerifyUserPage> {
-  final _usernameController = TextEditingController();
+  String username = "";
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context2) {
     //utilizamos un bloc provider para poder acceder al cubit
@@ -100,32 +102,50 @@ class _VerifyUserPageState extends State<VerifyUserPage> {
                         width: 4,
                       ),
                       borderRadius: BorderRadius.circular(20)),
-                  child: Column(children: <Widget>[
-                    TextField(
-                      controller: _usernameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Ingrese su correo',
-                      ),
-                    ),
-                    Padding(
-                        padding: EdgeInsets.all(20),
-                        child: ElevatedButton(
-                            onPressed: () {
-                              //cuando se presione el boton se ejecuta el cubit
-                              BlocProvider.of<VerifyUserCubit>(context)
-                                  .verify(_usernameController.text);
-                            },
-                            style: TextButton.styleFrom(
-                                backgroundColor: Color(0xff08D9D6),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                            child: const Text(
-                              "Verificar Correo",
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ))),
-                  ]))
+                  child: Form(
+                      key: _formKey,
+                      child: Column(children: <Widget>[
+                        TextFormField(
+                          //para que sea de tipo email
+                          keyboardType: TextInputType.emailAddress,
+                          //decoracion del textfield
+                          decoration: const InputDecoration(
+                            labelText: 'Ingrese su correo',
+                          ),
+                          //validando el textfield
+                          onSaved: (value) {
+                            username = value!;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Por favor ingrese un email';
+                            }
+                          },
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(20),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    //guardando el formulario
+                                    _formKey.currentState!.save();
+                                    //cuando se presione el boton se ejecuta el cubit
+                                    BlocProvider.of<VerifyUserCubit>(context)
+                                        .verify(username);
+                                  }
+                                },
+                                style: TextButton.styleFrom(
+                                    backgroundColor: Color(0xff08D9D6),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                child: const Text(
+                                  "Verificar Correo",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ))),
+                      ])))
             ]));
   }
 }

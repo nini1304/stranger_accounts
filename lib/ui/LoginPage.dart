@@ -15,8 +15,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  String username = "";
+  String password = "";
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context2) {
@@ -102,57 +103,87 @@ class _LoginPageState extends State<LoginPage> {
                   width: 4,
                 ),
                 borderRadius: BorderRadius.circular(20)),
-            child: Column(
-              children: <Widget>[
-                //creando un textfield para el usuario
-                TextField(
-                  controller: _usernameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Usuario',
-                    icon: Icon(Icons.person),
-                  ),
-                ),
-                //creando un textfield para la contraseña
-                TextField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(
-                    labelText: 'Contraseña',
-                    icon: Icon(Icons.lock),
-                  ),
-                  obscureText: true,
-                ),
-                //creando un boton para el login
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      //cuando se presione el boton se llama al cubit
-                      BlocProvider.of<LoginCubit>(context).login(
-                          _usernameController.text, _passwordController.text);
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  //creando un textfield para el usuario
+                  TextFormField(
+                    //para que sea de tipo email
+                    keyboardType: TextInputType.emailAddress,
+                    //decorando el textfield
+
+                    decoration: const InputDecoration(
+                      labelText: 'Usuario',
+                      icon: Icon(Icons.person),
+                    ),
+                    //validando el textfield
+                    onSaved: (value) {
+                      username = value!;
                     },
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xff08D9D6),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    child: const Text('          Ingresar          ',
-                        style: TextStyle(fontSize: 20)),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/verifyuser');
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un usuario';
+                      }
                     },
-                    style: TextButton.styleFrom(
-                        backgroundColor: Color(0xffFF2E63),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    child: const Text('Olvide mi contraseña',
-                        style: TextStyle(fontSize: 20)),
                   ),
-                ),
-              ],
+                  //creando un textfield para la contraseña
+                  TextFormField(
+                    //decorando el textfield
+                    decoration: const InputDecoration(
+                      labelText: 'Contraseña',
+                      icon: Icon(Icons.lock),
+                    ),
+                    //para que sea de tipo password
+                    obscureText: true,
+                    //validando el textfield
+                    onSaved: (value) {
+                      password = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese una contraseña';
+                      }
+                    },
+                  ),
+                  //creando un boton para el login
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        //validando el formulario
+                        if (_formKey.currentState!.validate()) {
+                          //guardando el formulario
+                          _formKey.currentState!.save();
+                          //llamando al cubit para que haga el login
+                          BlocProvider.of<LoginCubit>(context)
+                              .login(username, password);
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                          backgroundColor: Color(0xff08D9D6),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: const Text('          Ingresar          ',
+                          style: TextStyle(fontSize: 20)),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/verifyuser');
+                      },
+                      style: TextButton.styleFrom(
+                          backgroundColor: Color(0xffFF2E63),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: const Text('Olvide mi contraseña',
+                          style: TextStyle(fontSize: 20)),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
