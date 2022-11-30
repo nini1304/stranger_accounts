@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
         //la siguiente ruta nos dirige a la pestaña de restablecer contraseña
         '/restorepass': (context) => RestorePassPage(),
         //la siguiente ruta nos dirige a la pestaña de registro
-        '/register': (context) => RegisterPage(),
+
+        '/register': (context) => const RegisterPage(),
         //la siguiente ruta nos dirige al menu principal
         '/home': (context) => HomePage(),
         //la siguiente ruta nos dirige a la pagina de servicios de streaming

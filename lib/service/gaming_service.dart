@@ -3,14 +3,19 @@ import '../dto/GamingDto.dart';
 import 'package:http/http.dart' as http;
 
 class GamingService {
+<<<<<<< HEAD
   static const String backendUrlBase = "http://192.168.0.145:25060";
   Future<List<GamingDto>> getGamingList() async {
+=======
+  static const String backendUrlBase = "http://192.168.31.149:25060";
+  Future<List<GamingDto>> getGamingList(String token) async {
+>>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
     List<GamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/gaming/");
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      //'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token'
     };
     // Invocamos al backend
     var response = await http.get(uri, headers: headers);

@@ -14,7 +14,9 @@ class VerifyUserPage extends StatefulWidget {
 }
 
 class _VerifyUserPageState extends State<VerifyUserPage> {
-  final _usernameController = TextEditingController();
+  String username = "";
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context2) {
     //utilizamos un bloc provider para poder acceder al cubit
@@ -82,51 +84,68 @@ class _VerifyUserPageState extends State<VerifyUserPage> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //configurando un children para que tenga varios hijos usando un column
             children: <Widget>[
-              //cargamos el logo
-              Image.asset(
-                'images/logo.png',
-                width: 350,
-                height: 300,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(6),
-                child: Text(
-                  "Ingrese su correo:",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
+              Container(
+                //cargamos el logo
+                child: Image.asset(
+                  'images/logo.png',
+                  width: 350,
+                  height: 300,
                 ),
               ),
-              // creamos el boton de ingresar
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: TextFormField(
-                  controller: _usernameController,
-                  decoration:
-                      const InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.all(6),
-                  child: ElevatedButton.icon(
-                      icon: const Icon(
-                        Icons.app_shortcut,
-                        size: 24,
-                        color: Colors.white,
+              Container(
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color(0xffB2B2B2),
+                        width: 4,
                       ),
-                      onPressed: () {
-                        //cuando se presione el boton se ejecuta el cubit
-                        BlocProvider.of<VerifyUserCubit>(context)
-                            .verify(_usernameController.text);
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Color(0xff08D9D6)),
-                      label: const Text(
-                        "Verificar Correo",
-                        style: TextStyle(
-                          fontSize: 24,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Form(
+                      key: _formKey,
+                      child: Column(children: <Widget>[
+                        TextFormField(
+                          //para que sea de tipo email
+                          keyboardType: TextInputType.emailAddress,
+                          //decoracion del textfield
+                          decoration: const InputDecoration(
+                            labelText: 'Ingrese su correo',
+                          ),
+                          //validando el textfield
+                          onSaved: (value) {
+                            username = value!;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Por favor ingrese un email';
+                            }
+                          },
                         ),
-                      ))),
+                        Padding(
+                            padding: EdgeInsets.all(20),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    //guardando el formulario
+                                    _formKey.currentState!.save();
+                                    //cuando se presione el boton se ejecuta el cubit
+                                    BlocProvider.of<VerifyUserCubit>(context)
+                                        .verify(username);
+                                  }
+                                },
+                                style: TextButton.styleFrom(
+                                    backgroundColor: Color(0xff08D9D6),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                child: const Text(
+                                  "Verificar Correo",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ))),
+                      ])))
             ]));
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MenuLateral extends StatefulWidget {
-  const MenuLateral({Key? key}) : super(key: key);
+  const MenuLateral({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   State<MenuLateral> createState() => _MenuLateralState();
 }
 
@@ -49,19 +50,11 @@ class _MenuLateralState extends State<MenuLateral> {
             textAlign: TextAlign.center,
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Nuevo Pedido'),
+            leading: Icon(Icons.history),
+            title: Text('Servicios adquiridos'),
             onTap: () {
               Navigator.pushNamed(context, '/home');
             },
-          ),
-          ListTile(
-            leading: Icon(Icons.history),
-            title: Text('Pedidos anteriores'),
-          ),
-          ListTile(
-            leading: Icon(Icons.receipt),
-            title: Text('Mis facturas'),
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

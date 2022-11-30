@@ -16,11 +16,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _pictureController = TextEditingController();
-  final _nameController = TextEditingController();
-  final _lastnameController = TextEditingController();
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _phoneController = TextEditingController();
+  String name = "";
+  String lastname = "";
+  String username = "";
+  String password = "";
+  String phone = "";
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context2) {
     //utilizamos un bloc provider para poder acceder al cubit
@@ -86,136 +87,155 @@ class _RegisterPageState extends State<RegisterPage> {
         //mainAxisAlignment: MainAxisAlignment.center,
         //configurando un children para que tenga varios hijos usando un column
         children: <Widget>[
-          Padding(
-              padding: EdgeInsets.all(6),
-              child: ElevatedButton.icon(
-                  icon: const Icon(
-                    Icons.add_a_photo_outlined,
-                    size: 24,
-                    color: Colors.white,
-                  ),
-                  onPressed: () async {
-                    //Usamos ImagePicker para poder seleccionar una imagen de la galeria
-                    final ImagePicker _picker = ImagePicker();
-                    final XFile? image =
-                        await _picker.pickImage(source: ImageSource.gallery);
-                    _pictureController.text = image!.path;
-                  },
-                  style:
-                      TextButton.styleFrom(backgroundColor: Color(0xffFF2E63)),
-                  label: const Text(
-                    "Elegir Foto de Perfil",
-                    style: TextStyle(
-                      fontSize: 24,
+          Container(
+            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Color(0xffB2B2B2),
+                  width: 4,
+                ),
+                borderRadius: BorderRadius.circular(20)),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.all(20),
+                      child: ElevatedButton.icon(
+                          icon: const Icon(
+                            Icons.add_a_photo_outlined,
+                            size: 24,
+                            color: Colors.white,
+                          ),
+                          onPressed: () async {
+                            //Usamos ImagePicker para poder seleccionar una imagen de la galeria
+                            final ImagePicker _picker = ImagePicker();
+                            final XFile? image = await _picker.pickImage(
+                                source: ImageSource.gallery);
+                            _pictureController.text = image!.path;
+                          },
+                          style: TextButton.styleFrom(
+                              backgroundColor: Color(0xffFF2E63),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          label: const Text(
+                            "Elegir Foto de Perfil",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ))),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Ingrese su nombre',
                     ),
-                  ))),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su nombre:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _nameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su apellido:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _lastnameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su email:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _usernameController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su contrasena:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-              obscureText: true,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(6),
-            child: Text(
-              "Ingrese su celular:",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: TextFormField(
-              controller: _phoneController,
-              decoration: const InputDecoration(border: OutlineInputBorder()),
-            ),
-          ),
-          Padding(
-              padding: EdgeInsets.all(10),
-              child: ElevatedButton.icon(
-                  icon: const Icon(
-                    Icons.add_reaction_outlined,
-                    size: 24,
-                    color: Colors.white,
+                    onSaved: (value) {
+                      name = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un nombre';
+                      }
+                    },
                   ),
-                  onPressed: () {
-                    //cuando se presione el boton se ejecuta el cubit
-                    BlocProvider.of<RegisterCubit>(context).register(
-                        _pictureController.text,
-                        _nameController.text,
-                        _lastnameController.text,
-                        _usernameController.text,
-                        _passwordController.text,
-                        _phoneController.text);
-                  },
-                  style:
-                      TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
-                  label: const Text(
-                    "Registrarse",
-                    style: TextStyle(
-                      fontSize: 24,
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Ingrese su apellido',
                     ),
-                  ))),
+                    onSaved: (value) {
+                      lastname = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un apellido';
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    //para que sea de tipo email
+                    keyboardType: TextInputType.emailAddress,
+                    //decorando el textfield
+
+                    decoration: const InputDecoration(
+                      labelText: 'Usuario',
+                      icon: Icon(Icons.person),
+                    ),
+                    //validando el textfield
+                    onSaved: (value) {
+                      username = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un usuario';
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    //decorando el textfield
+                    decoration: const InputDecoration(
+                      labelText: 'Ingrese su nueva contraseña',
+                    ),
+                    //para que sea de tipo password
+                    obscureText: true,
+                    //validando el textfield
+                    onSaved: (value) {
+                      password = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese una contraseña';
+                      } else if (value.length < 12) {
+                        return 'La contraseña debe tener al menos 12 caracteres';
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Ingrese su numero de celular',
+                    ),
+                    onSaved: (value) {
+                      phone = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un numero de celular';
+                      }
+                    },
+                  ),
+                  Padding(
+                      padding: EdgeInsets.all(20),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            //validando el formulario
+                            if (_formKey.currentState!.validate()) {
+                              //guardando el formulario
+                              _formKey.currentState!.save();
+                              //cuando se presione el boton se ejecuta el cubit
+                              //cuando se presione el boton se ejecuta el cubit
+                              BlocProvider.of<RegisterCubit>(context).register(
+                                  _pictureController.text,
+                                  name,
+                                  lastname,
+                                  username,
+                                  password,
+                                  phone);
+                            }
+                          },
+                          style: TextButton.styleFrom(
+                              backgroundColor: Color(0xff08D9D6),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          child: const Text(
+                            "Registrarse",
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ))),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -14,7 +14,8 @@ class VerifyCodePage extends StatefulWidget {
 }
 
 class _VerifyCodePageState extends State<VerifyCodePage> {
-  final _codeeController = TextEditingController();
+  String codee = "";
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context2) {
     //utilizamos un bloc provider para poder acceder al cubit
@@ -80,51 +81,65 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //configurando un children para que tenga varios hijos usando un column
             children: <Widget>[
-              //cargamos el logo
-              Image.asset(
+              Container(
+                  //cargamos el logo
+                  child: Image.asset(
                 'images/logo.png',
                 width: 350,
                 height: 300,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(6),
-                child: Text(
-                  "Ingrese el codigo:",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              // creamos el boton de ingresar
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: TextFormField(
-                  controller: _codeeController,
-                  decoration:
-                      const InputDecoration(border: OutlineInputBorder()),
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.all(6),
-                  child: ElevatedButton.icon(
-                      icon: const Icon(
-                        Icons.app_shortcut,
-                        size: 24,
-                        color: Colors.white,
+              )),
+              Container(
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color(0xffB2B2B2),
+                        width: 4,
                       ),
-                      onPressed: () {
-                        //cuando se presione el boton se ejecuta el cubit
-                        BlocProvider.of<VerifyCodeCubit>(context)
-                            .verifyc(_codeeController.text);
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Color(0xff08D9D6)),
-                      label: const Text(
-                        "Verificar Codigo",
-                        style: TextStyle(
-                          fontSize: 24,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Form(
+                      key: _formKey,
+                      child: Column(children: <Widget>[
+                        TextFormField(
+                          //decoracion del textfield
+                          decoration: const InputDecoration(
+                            labelText: 'Ingrese el codigo de verificacion',
+                          ),
+                          //validando el textfield
+                          onSaved: (value) {
+                            codee = value!;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Por favor ingrese un codigo';
+                            }
+                          },
                         ),
-                      ))),
+                        Padding(
+                            padding: EdgeInsets.all(6),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    //guardando el formulario
+                                    _formKey.currentState!.save();
+                                    //cuando se presione el boton se ejecuta el cubit
+                                    BlocProvider.of<VerifyCodeCubit>(context)
+                                        .verifyc(codee);
+                                  }
+                                },
+                                style: TextButton.styleFrom(
+                                    backgroundColor: Color(0xff08D9D6),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                child: const Text(
+                                  "Verificar Codigo",
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                  ),
+                                ))),
+                      ])))
             ]));
   }
 }

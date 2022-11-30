@@ -4,7 +4,11 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class AcquiredService {
+<<<<<<< HEAD
   static const String _url = 'http://192.168.0.145:25060';
+=======
+  static const String _url = "http://192.168.31.149:25060";
+>>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
   Future<List<AcquiredDto>> getAcquiredList() async {
     List<AcquiredDto> result;
     var uri = Uri.parse("$_url/api/v1/acquired/");
