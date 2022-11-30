@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MenuLateral extends StatefulWidget {
-  const MenuLateral({Key? key}) : super(key: key);
+  const MenuLateral({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   State<MenuLateral> createState() => _MenuLateralState();
 }
 

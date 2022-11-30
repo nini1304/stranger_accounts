@@ -4,13 +4,13 @@ import '../dto/ItemDto.dart';
 
 class ItemService {
   static const String backendUrlBase = "http://192.168.31.149:25060";
-  Future<List<ItemDto>> getItemList() async {
+  Future<List<ItemDto>> getItemList(String token) async {
     List<ItemDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/item/");
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      //'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token'
     };
     // Invocamos al backend
     var response = await http.get(uri, headers: headers);
