@@ -4,13 +4,8 @@ import '../dto/StreamingDto.dart';
 import 'package:http/http.dart' as http;
 
 class StreamingService {
-<<<<<<< HEAD
-  static const String backendUrlBase = "http://192.168.0.145:25060";
-  Future<List<StreamingDto>> getStreamingList() async {
-=======
   static const String backendUrlBase = "http://192.168.31.149:25060";
   Future<List<StreamingDto>> getStreamingList(String token) async {
->>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
     List<StreamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/streaming/");
     Map<String, String> headers = {

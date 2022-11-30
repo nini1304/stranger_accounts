@@ -5,11 +5,7 @@ import '../dto/ResponseDto.dart';
 import '../dto/user_info_dato.dart';
 
 class UserService {
-<<<<<<< HEAD
-  static const String backendUrlBase = "http://192.168.0.145:25060";
-=======
   static const String backendUrlBase = "http://192.168.31.149:25060";
->>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
   Future<UserInfoDto> getUserInfo(String token) async {
     UserInfoDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/reapi/");

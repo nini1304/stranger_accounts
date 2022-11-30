@@ -56,11 +56,7 @@ class _PlansPageState extends State<PlansPage> {
         },
       ),
       appBar: AppBar(
-<<<<<<< HEAD
-        title: const Text('Persoalizar Plan'),
-=======
         title: const Text('Planes del servicio'),
->>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
         backgroundColor: const Color(0xff252A34),
       ),
     );

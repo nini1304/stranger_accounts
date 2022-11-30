@@ -3,13 +3,8 @@ import 'package:http/http.dart' as http;
 import '../dto/ItemDto.dart';
 
 class ItemService {
-<<<<<<< HEAD
   static const String backendUrlBase = "http://192.168.0.145:25060";
-  Future<List<ItemDto>> getItemList() async {
-=======
-  static const String backendUrlBase = "http://192.168.31.149:25060";
   Future<List<ItemDto>> getItemList(String token) async {
->>>>>>> da3875cd110fc110f247aeebbd225c1751e09a6a
     List<ItemDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/item/");
     Map<String, String> headers = {
