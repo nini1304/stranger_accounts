@@ -44,17 +44,19 @@ class _PlansPageState extends State<PlansPage> {
             itemCount: state.data.length,
             itemBuilder: (context, index) {
               return PlansCard(
+                  /*
                   plansId: state.data[index].plansId,
                   days: state.data[index].days,
                   price: state.data[index].price,
                   durationLabel: state.data[index].durationLabel,
-                  serviceId: state.data[index].serviceId);
+                  serviceId: state.data[index].serviceId*/
+                  );
             },
           );
         },
       ),
       appBar: AppBar(
-        title: const Text('Servicios de Music'),
+        title: const Text('Persoalizar Plan'),
         backgroundColor: const Color(0xff252A34),
       ),
     );
