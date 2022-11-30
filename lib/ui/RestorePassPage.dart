@@ -14,7 +14,8 @@ class RestorePassPage extends StatefulWidget {
 }
 
 class _RestorePassPageState extends State<RestorePassPage> {
-  final _passwordController = TextEditingController();
+  String password = "";
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context2) {
     //utilizamos un bloc provider para poder acceder al cubit
@@ -80,52 +81,70 @@ class _RestorePassPageState extends State<RestorePassPage> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //configurando un children para que tenga varios hijos usando un column
             children: <Widget>[
-              //cargamos el logo
-              Image.asset(
+              Container(
+                  //cargamos el logo
+                  child: Image.asset(
                 'images/logo.png',
                 width: 350,
                 height: 300,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(6),
-                child: Text(
-                  "Ingrese su nueva contraseña:",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              // creamos el boton de ingresar
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: TextFormField(
-                  controller: _passwordController,
-                  decoration:
-                      const InputDecoration(border: OutlineInputBorder()),
-                  obscureText: true,
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.all(6),
-                  child: ElevatedButton.icon(
-                      icon: const Icon(
-                        Icons.app_shortcut,
-                        size: 24,
-                        color: Colors.white,
+              )),
+              Container(
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color(0xffB2B2B2),
+                        width: 4,
                       ),
-                      onPressed: () {
-                        //cuando se presione el boton se ejecuta el cubit
-                        BlocProvider.of<RestorePassCubit>(context)
-                            .restorepass(_passwordController.text);
-                      },
-                      style: TextButton.styleFrom(
-                          backgroundColor: Color(0xff08D9D6)),
-                      label: const Text(
-                        "Actualizar",
-                        style: TextStyle(
-                          fontSize: 24,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Form(
+                      key: _formKey,
+                      child: Column(children: <Widget>[
+                        TextFormField(
+                          //decorando el textfield
+                          decoration: const InputDecoration(
+                            labelText: 'Ingrese su nueva contraseña',
+                          ),
+                          //para que sea de tipo password
+                          obscureText: true,
+                          //validando el textfield
+                          onSaved: (value) {
+                            password = value!;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Por favor ingrese una contraseña';
+                            } else if (value.length < 12) {
+                              return 'La contraseña debe tener al menos 12 caracteres';
+                            }
+                          },
                         ),
-                      ))),
+                        Padding(
+                            padding: EdgeInsets.all(6),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  //validando el formulario
+                                  if (_formKey.currentState!.validate()) {
+                                    //guardando el formulario
+                                    _formKey.currentState!.save();
+                                    //cuando se presione el boton se ejecuta el cubit
+                                    BlocProvider.of<RestorePassCubit>(context)
+                                        .restorepass(password);
+                                  }
+                                },
+                                style: TextButton.styleFrom(
+                                    backgroundColor: Color(0xff08D9D6),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                child: const Text(
+                                  "Actualizar",
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                  ),
+                                ))),
+                      ])))
             ]));
   }
 }

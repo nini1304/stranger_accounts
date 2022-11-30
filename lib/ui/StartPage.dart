@@ -50,7 +50,7 @@ class StartPage extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: ElevatedButton.icon(
                   icon: const Icon(
-                    Icons.app_shortcut,
+                    Icons.add_to_home_screen,
                     size: 24,
                     color: Colors.white,
                   ),
@@ -58,8 +58,10 @@ class StartPage extends StatelessWidget {
                     //Navigator.pushNamed(context, '/login');
                     Navigator.pushNamed(context, '/login');
                   },
-                  style:
-                      TextButton.styleFrom(backgroundColor: Color(0xff08D9D6)),
+                  style: TextButton.styleFrom(
+                      backgroundColor: Color(0xff08D9D6),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
                   label: const Text(
                     "Ingresar",
                     style: TextStyle(
@@ -82,7 +84,7 @@ class StartPage extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: ElevatedButton.icon(
                     icon: const Icon(
-                      Icons.add_reaction_outlined,
+                      Icons.account_box_outlined,
                       size: 24,
                       color: Colors.white,
                     ),
@@ -90,7 +92,9 @@ class StartPage extends StatelessWidget {
                       Navigator.pushNamed(context, '/register');
                     },
                     style: TextButton.styleFrom(
-                        backgroundColor: Color(0xffFF2E63)),
+                        backgroundColor: Color(0xffFF2E63),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
                     label: const Text(
                       "Registrarse",
                       style: TextStyle(
