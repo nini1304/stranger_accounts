@@ -6,7 +6,7 @@ import 'package:stranger_accounts/ui/widget/getId.dart';
 
 class PlansService {
   Controller controller = Get.put(Controller());
-  static const String backendUrlBase = "http://192.168.118.211:25060";
+  static const String backendUrlBase = "http://192.168.31.149:25060";
 
   Future<List<PlansDto>> getPlanList() async {
     List<PlansDto> result;

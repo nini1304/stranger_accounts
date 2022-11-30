@@ -49,19 +49,11 @@ class _MenuLateralState extends State<MenuLateral> {
             textAlign: TextAlign.center,
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Nuevo Pedido'),
+            leading: Icon(Icons.history),
+            title: Text('Servicios adquiridos'),
             onTap: () {
               Navigator.pushNamed(context, '/home');
             },
-          ),
-          ListTile(
-            leading: Icon(Icons.history),
-            title: Text('Pedidos anteriores'),
-          ),
-          ListTile(
-            leading: Icon(Icons.receipt),
-            title: Text('Mis facturas'),
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),

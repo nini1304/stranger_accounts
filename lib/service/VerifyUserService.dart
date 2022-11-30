@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
 
 class VerifyUserService {
-  static const String backendUrlBase = "http://192.168.118.211:25060";
+  static const String backendUrlBase = "http://192.168.31.149:25060";
   static Future<ResponseDto> verify(String username) async {
     ResponseDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/userapi/verify");

@@ -54,7 +54,7 @@ class _PlansPageState extends State<PlansPage> {
         },
       ),
       appBar: AppBar(
-        title: const Text('Servicios de Music'),
+        title: const Text('Planes del servicio'),
         backgroundColor: const Color(0xff252A34),
       ),
     );

@@ -4,14 +4,14 @@ import '../dto/StreamingDto.dart';
 import 'package:http/http.dart' as http;
 
 class StreamingService {
-  static const String backendUrlBase = "http://192.168.118.211:25060";
-  Future<List<StreamingDto>> getStreamingList() async {
+  static const String backendUrlBase = "http://192.168.31.149:25060";
+  Future<List<StreamingDto>> getStreamingList(String token) async {
     List<StreamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/streaming/");
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      //'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token'
     };
     // Invocamos al backend
     var response = await http.get(uri, headers: headers);
@@ -25,7 +25,6 @@ class StreamingService {
         result = (backendResponse['data'] as List)
             .map((e) => StreamingDto.fromJson(e))
             .toList();
-        print("2: $result");
       } else {
         // Si el backend envíe error (success = true), entonces seguramente
         // envió un message para mostrarle a nuestra usuario final

@@ -3,7 +3,7 @@ import '../dto/GamingDto.dart';
 import 'package:http/http.dart' as http;
 
 class GamingService {
-  static const String backendUrlBase = "http://192.168.118.211:25060";
+  static const String backendUrlBase = "http://192.168.31.149:25060";
   Future<List<GamingDto>> getGamingList() async {
     List<GamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/gaming/");
