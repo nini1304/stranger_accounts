@@ -53,7 +53,7 @@ class _MenuLateralState extends State<MenuLateral> {
             leading: Icon(Icons.history),
             title: Text('Servicios adquiridos'),
             onTap: () {
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushNamed(context, '/acquired');
             },
           ),
           ListTile(

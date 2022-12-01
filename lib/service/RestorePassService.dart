@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import '../dto/ResponseDto.dart';
 import 'package:http/http.dart' as http;
-import '../service/service.dart' as service;
 
 class RestorePassService {
   static const String backendUrlBase = "http://192.168.1.202:25060";

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../dto/ResponseDto.dart';
-import '../service/service.dart' as service;
 
 class RegisterService {
   static const String backendUrlBase = "http://192.168.1.202:25060";

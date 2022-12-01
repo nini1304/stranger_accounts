@@ -1,14 +1,15 @@
-/*import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AcquiredCard extends StatelessWidget {
-  final int serviceId;
+  /*final int serviceId;
   final int userId;
   final String profileUsername;
   final String durationLabel;
   final startDate;
-  final expirationDate;
-
+  final expirationDate;*/
+  const AcquiredCard({super.key});
+/*
   AcquiredCard(
       {Key? key,
       required this.serviceId,
@@ -18,6 +19,7 @@ class AcquiredCard extends StatelessWidget {
       required this.startDate,
       required this.expirationDate})
       : super(key: key);
+      */
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -42,24 +44,16 @@ class AcquiredCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Container(
-                //espacio entre imagen y tarjeta
-                margin: const EdgeInsets.all(10),
-                height: 145,
-                width: 145,
-                
-                ),
-              ),
               Center(
                 child: Text(
-                  articleConcept,
+                  'articleConcept',
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Center(
                 child: Text(
-                  gamePrice,
+                  'gamePrice',
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
@@ -76,12 +70,12 @@ class AcquiredCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Id del servicio: $serviceId"),
-          Text("Id del usuario: $userId"),
-          Text("Nombre de usuario: $profileUsername"),
-          Text("Duración: $durationLabel"),
-          Text("Fecha de inicio: $startDate"),
-          Text("Fecha de expiración: $expirationDate"),
+          Text("Id del servicio: serviceId"),
+          Text("Id del usuario: userId"),
+          Text("Nombre de usuario: profileUsername"),
+          Text("Duración: durationLabel"),
+          Text("Fecha de inicio: startDate"),
+          Text("Fecha de expiración: expirationDate"),
         ],
       ),
       actions: <Widget>[
@@ -95,4 +89,3 @@ class AcquiredCard extends StatelessWidget {
     );
   }
 }
-*/
