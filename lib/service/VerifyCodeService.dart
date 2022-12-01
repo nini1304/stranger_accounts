@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
-import '../service/service.dart' as service;
 
 class VerifyCodeService {
   static const String backendUrlBase = "http://192.168.0.145:25060";

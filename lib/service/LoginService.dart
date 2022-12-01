@@ -5,8 +5,6 @@ import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
 
 class LoginService {
-  //el mirko me va a explicar
-
   static const String backendUrlBase = "http://192.168.0.145:25060";
   //Creamos el future para que nos devuelva un LoginResponseDto
   static Future<LoginResponseDto> login(
