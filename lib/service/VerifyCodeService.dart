@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class VerifyCodeService {
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  static String backendUrlBase = ip.urlBack;
   static Future<ResponseDto> verifyc(String codee) async {
     ResponseDto result;
 

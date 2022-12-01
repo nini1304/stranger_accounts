@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../dto/ResponseDto.dart';
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class VerifyUserService {
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  static String backendUrlBase = ip.urlBack;
   static Future<ResponseDto> verify(String username) async {
     ResponseDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/userapi/verify");

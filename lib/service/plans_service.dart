@@ -3,11 +3,12 @@ import 'package:http/http.dart' as http;
 import '../dto/PlansDto.dart';
 import 'package:get/get.dart';
 import 'package:stranger_accounts/ui/widget/getId.dart';
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class PlansService {
   Controller controller = Get.put(Controller());
 
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  String backendUrlBase = ip.urlBack;
 
   Future<List<PlansDto>> getPlanList() async {
     List<PlansDto> result;

@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 import '../dto/ResponseDto.dart';
 import '../dto/user_info_dato.dart';
 
 class UserService {
-  static const String backendUrlBase = "http://192.168.31.149:25060";
+  String backendUrlBase = ip.urlBack;
   Future<List<UserInfoDto>> getUserInfo(String token) async {
     List<UserInfoDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/reapi/");

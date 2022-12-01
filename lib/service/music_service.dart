@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../dto/MusicDto.dart';
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class MusicService {
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  String backendUrlBase = ip.urlBack;
   Future<List<MusicDto>> getMusicList(String token) async {
     List<MusicDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/music/");

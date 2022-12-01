@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import '../dto/ResponseDto.dart';
 import 'package:http/http.dart' as http;
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class RestorePassService {
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  static String backendUrlBase = ip.urlBack;
   static Future<ResponseDto> restorepass(String password) async {
     ResponseDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/userapi/restorepass");
