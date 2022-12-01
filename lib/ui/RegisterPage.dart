@@ -91,12 +91,20 @@ class _RegisterPageState extends State<RegisterPage> {
             margin: const EdgeInsets.all(20),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Color(0xffB2B2B2),
-                  width: 4,
+              color: Colors.white,
+              border: Border.all(
+                color: Color(0xffB2B2B2),
+                width: 4,
+              ),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: new Offset(0.0, 20.0),
+                  blurRadius: 20.0,
                 ),
-                borderRadius: BorderRadius.circular(20)),
+              ],
+            ),
             child: Form(
               key: _formKey,
               child: Column(
@@ -129,6 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Ingrese su nombre',
+                      icon: Icon(Icons.arrow_forward_ios_outlined),
                     ),
                     onSaved: (value) {
                       name = value!;
@@ -142,6 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Ingrese su apellido',
+                      icon: Icon(Icons.arrow_forward_ios_outlined),
                     ),
                     onSaved: (value) {
                       lastname = value!;
@@ -159,7 +169,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                     decoration: const InputDecoration(
                       labelText: 'Usuario',
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.arrow_forward_ios_outlined),
                     ),
                     //validando el textfield
                     onSaved: (value) {
@@ -175,6 +185,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     //decorando el textfield
                     decoration: const InputDecoration(
                       labelText: 'Ingrese su nueva contraseña',
+                      icon: Icon(Icons.arrow_forward_ios_outlined),
                     ),
                     //para que sea de tipo password
                     obscureText: true,
@@ -193,6 +204,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Ingrese su numero de celular',
+                      icon: Icon(Icons.arrow_forward_ios_outlined),
                     ),
                     onSaved: (value) {
                       phone = value!;
