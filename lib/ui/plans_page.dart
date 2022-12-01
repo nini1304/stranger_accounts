@@ -24,6 +24,10 @@ class _PlansPageState extends State<PlansPage> {
     super.initState();
   }
 
+  List<String> items = [
+    'state.data[index].days, + price.toString() + durationLabel'
+  ];
+  String? selectedItem = '1';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +47,29 @@ class _PlansPageState extends State<PlansPage> {
           return ListView.builder(
             itemCount: state.data.length,
             itemBuilder: (context, index) {
-              return PlansCard(
-                  /*
+              return Center(
+                  child: SizedBox(
+                      width: 240,
+                      child: DropdownButton<String>(
+                        value: selectedItem,
+                        items: items
+                            .map((item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(item,
+                                      style: TextStyle(fontSize: 24)),
+                                ))
+                            .toList(),
+                        onChanged: (item) =>
+                            setState((() => selectedItem = item)),
+                      )));
+
+              /*
+              PlansCard(
                   plansId: state.data[index].plansId,
                   days: state.data[index].days,
                   price: state.data[index].price,
                   durationLabel: state.data[index].durationLabel,
-                  serviceId: state.data[index].serviceId*/
-                  );
+                  serviceId: state.data[index].serviceId);*/
             },
           );
         },

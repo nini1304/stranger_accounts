@@ -4,7 +4,7 @@ import '../dto/ResponseDto.dart';
 import '../service/service.dart' as service;
 
 class VerifyCodeService {
-  static const String backendUrlBase = "http://192.168.31.149:25060";
+  static const String backendUrlBase = "http://192.168.1.216:25060";
   static Future<ResponseDto> verifyc(String codee) async {
     ResponseDto result;
 

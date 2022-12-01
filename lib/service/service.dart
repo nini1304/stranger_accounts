@@ -11,4 +11,4 @@ export 'package:stranger_accounts/service/user_service.dart';
 export 'package:stranger_accounts/service/VerifyCodeService.dart';
 export 'package:stranger_accounts/service/VerifyUserService.dart';
 
-String backendURL = "http://192.168.31.149:25060";
+String backendURL = "http://192.168.1.216:25060";

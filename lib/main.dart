@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stranger_accounts/ui/AcquiredServicesPage.dart';
 import 'package:stranger_accounts/ui/LoginPage.dart';
 import 'package:stranger_accounts/ui/RegisterPage.dart';
 import 'package:stranger_accounts/ui/RestorePassPage.dart';
@@ -52,6 +53,8 @@ class MyApp extends StatelessWidget {
         '/items': (context) => const ItemPage(),
         //la siguiente ruta nos dirige a la pagina de personalizacion de plan
         '/customize': (context) => const PlansPage(),
+        //la siguiente ruta nos dirige a la pagina de servicios adquiridos
+        '/acquired': (context) => const AcquiredServicesPage(),
       },
     );
   }
