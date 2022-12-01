@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AcquiredCard extends StatelessWidget {
   final int serviceId;
-  final String serviceName;
+  final String platformName;
   final int userId;
   final String profileUsername;
   final String durationLabel;
@@ -15,7 +15,7 @@ class AcquiredCard extends StatelessWidget {
   AcquiredCard(
       {Key? key,
       required this.serviceId,
-      required this.serviceName,
+      required this.platformName,
       required this.userId,
       required this.profileUsername,
       required this.durationLabel,
@@ -48,9 +48,21 @@ class AcquiredCard extends StatelessWidget {
           ),
           child: Column(
             children: [
+              Container(
+                margin: const EdgeInsets.all(10),
+                height: 145,
+                width: 145,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(picture),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               Center(
                 child: Text(
-                  "Servicio:" + serviceName.toString(),
+                  "Servicio:" + platformName.toString(),
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),

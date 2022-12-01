@@ -18,6 +18,7 @@ class PlansState extends Equatable {
     PageStatus? status,
     List<PlansDto>? data,
     String? errorMessage,
+    int? plansId,
   }) {
     return PlansState(
       status: status ?? this.status,

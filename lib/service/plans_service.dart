@@ -7,7 +7,7 @@ import 'package:stranger_accounts/ui/widget/getId.dart';
 class PlansService {
   Controller controller = Get.put(Controller());
 
-  static const String backendUrlBase = "http://192.168.0.145:25060";
+  static const String backendUrlBase = "http://192.168.1.216:25060";
 
   Future<List<PlansDto>> getPlanList() async {
     List<PlansDto> result;
@@ -20,7 +20,7 @@ class PlansService {
       //'Authorization': 'Bearer $token'
     };
     // Invocamos al backend
-    var response = await http.get(uri, headers: headers);
+    final response = await http.get(uri, headers: headers);
     if (response.statusCode == 200) {
       // El backend procesó la solicitud entonces decodificamos
       var backendResponse = jsonDecode(response.body);
@@ -28,9 +28,7 @@ class PlansService {
       if (backendResponse['success']) {
         // Decodificamos el data del objecto Response del backend y lo covertimos
         // a una clase Dart para retornarselo al CUBIT
-        result = (backendResponse['data'] as List)
-            .map((e) => PlansDto.fromJson(e))
-            .toList();
+        result = backendResponse.result.map((e) => PlansDto.fromJson(e));
       } else {
         // Si el backend envíe error (success = true), entonces seguramente
         // envió un message para mostrarle a nuestra usuario final

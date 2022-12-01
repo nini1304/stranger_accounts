@@ -1,6 +1,6 @@
 class AcquiredDto {
   final int serviceId;
-  final String serviceName;
+  final String platformName;
   final int userId;
   final String profileUsername;
   final String durationLabel;
@@ -9,7 +9,7 @@ class AcquiredDto {
   final expirationDate;
   AcquiredDto(
       {required this.serviceId,
-      required this.serviceName,
+      required this.platformName,
       required this.userId,
       required this.profileUsername,
       required this.durationLabel,
@@ -19,7 +19,7 @@ class AcquiredDto {
   factory AcquiredDto.fromJson(Map<String, dynamic> json) {
     return AcquiredDto(
         serviceId: json['serviceId'],
-        serviceName: json['serviceName'],
+        platformName: json['platformName'],
         userId: json['userId'],
         profileUsername: json['profileUsername'],
         durationLabel: json['durationLabel'],

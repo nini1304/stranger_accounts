@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stranger_accounts/ui/widget/CustomDropDownForm.dart';
 import 'package:stranger_accounts/ui/widget/PlansCard.dart';
 
 import '../cubit/PageStatus.dart';
@@ -99,6 +100,18 @@ class _PlansPageState extends State<PlansPage> {
                       }
                     },
                   ),
+                  /*
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomDropDownForm(
+                    list: DropdownMenuItem.getPlanList(state!.
+                    label: 'Plan',
+                    onChanged: (value) {
+                      BlocProvider.of<PlansCubit>(context).changePlansId(value);
+                    },
+                    initialValue: 0,
+                  ),*/
                 ])),
           )
         ]));

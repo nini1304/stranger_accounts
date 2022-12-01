@@ -27,6 +27,7 @@ class _AcquiredServicesPageState extends State<AcquiredServicesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Servicios adquiridos'),
+        backgroundColor: const Color(0xff252A34),
       ),
       body: BlocBuilder<AcquiredCubit, AcquiredState>(
         bloc: acquiredCubit,
@@ -50,7 +51,7 @@ class _AcquiredServicesPageState extends State<AcquiredServicesPage> {
                 final item = state.data[index];
                 return AcquiredCard(
                   serviceId: state.data[index].serviceId,
-                  serviceName: state.data[index].serviceName,
+                  platformName: state.data[index].platformName,
                   userId: state.data[index].userId,
                   profileUsername: state.data[index].profileUsername,
                   durationLabel: state.data[index].durationLabel,
