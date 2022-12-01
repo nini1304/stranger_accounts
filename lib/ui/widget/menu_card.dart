@@ -76,13 +76,14 @@ class MenuCard extends StatelessWidget {
           ListTile(
             title: const Text('Mis Suscripciones'),
             onTap: () {
-              Navigator.pushNamed(context, '/subscriptions');
+              Navigator.pushNamed(context, '/acquired');
             },
           ),
           ListTile(
             title: const Text('Cerrar Sesión'),
             onTap: () {
-              Navigator.pushNamed(context, '/login');
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/login', (Route<dynamic> route) => false);
             },
           ),
         ],

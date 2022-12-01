@@ -5,11 +5,7 @@ import 'dart:convert';
 import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class AcquiredService {
-<<<<<<< HEAD
-  static const String _url = 'http://192.168.1.216:25060';
-=======
-  String _url = ip.urlBack;
->>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
+  static String _url = ip.urlBack;
   Future<List<AcquiredDto>> getAcquiredList() async {
     List<AcquiredDto> result;
     var uri = Uri.parse("$_url/api/v1/acquired/23");

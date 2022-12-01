@@ -8,11 +8,7 @@ import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 class PlansService {
   Controller controller = Get.put(Controller());
 
-<<<<<<< HEAD
-  static const String backendUrlBase = "http://192.168.1.216:25060";
-=======
-  String backendUrlBase = ip.urlBack;
->>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
+  static String backendUrlBase = ip.urlBack;
 
   Future<List<PlansDto>> getPlanList() async {
     List<PlansDto> result;

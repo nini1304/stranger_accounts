@@ -5,15 +5,9 @@ import '../dto/ResponseDto.dart';
 import '../dto/user_info_dato.dart';
 
 class UserService {
-<<<<<<< HEAD
-  static const String backendUrlBase = "http://192.168.1.216:25060";
+  static String backendUrlBase = ip.urlBack;
   Future<UserInfoDto> getUserInfo(String token) async {
     UserInfoDto result;
-=======
-  String backendUrlBase = ip.urlBack;
-  Future<List<UserInfoDto>> getUserInfo(String token) async {
-    List<UserInfoDto> result;
->>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
     var uri = Uri.parse("$backendUrlBase/api/v1/reapi/");
     Map<String, String> headers = {
       'Accept': 'application/json',
@@ -27,9 +21,7 @@ class UserService {
           ResponseDto.fromJson(jsonDecode(response.body));
       if (backendResponse.success) {
         // Si el backend me envió la información del usuario lo extraemos
-        result = (backendResponse.data as List)
-            .map((e) => UserInfoDto.fromJson(e))
-            .toList();
+        result = UserInfoDto.fromJson(backendResponse.data);
       } else {
         throw Exception(backendResponse.message);
       }

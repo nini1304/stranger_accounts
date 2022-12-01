@@ -4,11 +4,7 @@ import '../dto/ItemDto.dart';
 import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class ItemService {
-<<<<<<< HEAD
-  static const String backendUrlBase = "http://192.168.1.216:25060";
-=======
-  String backendUrlBase = ip.urlBack;
->>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
+  static String backendUrlBase = ip.urlBack;
   Future<List<ItemDto>> getItemList(String token) async {
     List<ItemDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/item/");
