@@ -1,14 +1,15 @@
 import 'dart:convert';
+
+import 'package:stranger_accounts/dto/MenuDto.dart';
 import 'package:http/http.dart' as http;
 
 import '../dto/ResponseDto.dart';
-import '../dto/user_info_dato.dart';
 
-class UserService {
+class MenuService {
   static const String backendUrlBase = "http://192.168.31.149:25060";
-  Future<List<UserInfoDto>> getUserInfo(String token) async {
-    List<UserInfoDto> result;
-    var uri = Uri.parse("$backendUrlBase/api/v1/reapi/");
+  Future<MenuDto> getUserData(String token) async {
+    MenuDto result;
+    var uri = Uri.parse("$backendUrlBase/api/v1/userapi/");
     Map<String, String> headers = {
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
@@ -19,11 +20,12 @@ class UserService {
       // El backend procesó la solicitud entonces decodificamos
       ResponseDto backendResponse =
           ResponseDto.fromJson(jsonDecode(response.body));
+      print(backendResponse.data);
       if (backendResponse.success) {
+        print("mensjae: $backendResponse.success");
         // Si el backend me envió la información del usuario lo extraemos
-        result = (backendResponse.data as List)
-            .map((e) => UserInfoDto.fromJson(e))
-            .toList();
+        result = MenuDto.fromJson(backendResponse.data);
+        print(result.firstName);
       } else {
         throw Exception(backendResponse.message);
       }
