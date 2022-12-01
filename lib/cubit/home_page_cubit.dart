@@ -17,9 +17,9 @@ class HomePageCubit extends Cubit<HomePageState> {
     try {
       if (token != null) {
         // Invocamos al service
-        UserInfoDto userInfoDto = await UserService().getUserInfo(token);
+        List<UserInfoDto> userInfoDto = await UserService().getUserInfo(token);
         emit(state.copyWith(
-            status: PageStatus.success, userInfoDto: userInfoDto));
+            status: PageStatus.success, userInfoDto: userInfoDto.first));
       } else {
         // TODO No hay token deberíamos botar al usuario al login
         emit(state.copyWith(

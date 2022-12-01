@@ -1,10 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 import '../dto/ResponseDto.dart';
 
 class RegisterService {
+<<<<<<< HEAD
   static const String backendUrlBase = "http://192.168.1.216:25060";
+=======
+  static String backendUrlBase = ip.urlBack;
+>>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
   static Future<ResponseDto> register(String picture, String name,
       String lastname, String username, String password, String phone) async {
     ResponseDto result;

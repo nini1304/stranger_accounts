@@ -1,9 +1,14 @@
 import 'dart:convert';
 import '../dto/GamingDto.dart';
 import 'package:http/http.dart' as http;
+import 'package:stranger_accounts/service/serviceip/ip.dart' as ip;
 
 class GamingService {
+<<<<<<< HEAD
   static const String backendUrlBase = "192.168.1.216:25060";
+=======
+  String backendUrlBase = ip.urlBack;
+>>>>>>> 6d5e0fd70efc1c16a6746f409ec579d63f389c0f
   Future<List<GamingDto>> getGamingList(String token) async {
     List<GamingDto> result;
     var uri = Uri.parse("$backendUrlBase/api/v1/gaming/");
