@@ -92,12 +92,20 @@ class _RestorePassPageState extends State<RestorePassPage> {
                   margin: const EdgeInsets.all(20),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color(0xffB2B2B2),
-                        width: 4,
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Color(0xffB2B2B2),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        offset: new Offset(0.0, 20.0),
+                        blurRadius: 20.0,
                       ),
-                      borderRadius: BorderRadius.circular(20)),
+                    ],
+                  ),
                   child: Form(
                       key: _formKey,
                       child: Column(children: <Widget>[
@@ -105,6 +113,7 @@ class _RestorePassPageState extends State<RestorePassPage> {
                           //decorando el textfield
                           decoration: const InputDecoration(
                             labelText: 'Ingrese su nueva contraseña',
+                            icon: Icon(Icons.lock),
                           ),
                           //para que sea de tipo password
                           obscureText: true,
@@ -121,7 +130,7 @@ class _RestorePassPageState extends State<RestorePassPage> {
                           },
                         ),
                         Padding(
-                            padding: EdgeInsets.all(6),
+                            padding: EdgeInsets.all(20),
                             child: ElevatedButton(
                                 onPressed: () {
                                   //validando el formulario
@@ -141,7 +150,7 @@ class _RestorePassPageState extends State<RestorePassPage> {
                                 child: const Text(
                                   "Actualizar",
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 20,
                                   ),
                                 ))),
                       ])))

@@ -92,12 +92,20 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   margin: const EdgeInsets.all(20),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color(0xffB2B2B2),
-                        width: 4,
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Color(0xffB2B2B2),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        offset: new Offset(0.0, 20.0),
+                        blurRadius: 20.0,
                       ),
-                      borderRadius: BorderRadius.circular(20)),
+                    ],
+                  ),
                   child: Form(
                       key: _formKey,
                       child: Column(children: <Widget>[
@@ -105,6 +113,7 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                           //decoracion del textfield
                           decoration: const InputDecoration(
                             labelText: 'Ingrese el codigo de verificacion',
+                            icon: Icon(Icons.ad_units),
                           ),
                           //validando el textfield
                           onSaved: (value) {
@@ -117,7 +126,7 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                           },
                         ),
                         Padding(
-                            padding: EdgeInsets.all(6),
+                            padding: EdgeInsets.all(20),
                             child: ElevatedButton(
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
@@ -136,7 +145,7 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                                 child: const Text(
                                   "Verificar Codigo",
                                   style: TextStyle(
-                                    fontSize: 24,
+                                    fontSize: 20,
                                   ),
                                 ))),
                       ])))

@@ -96,12 +96,20 @@ class _VerifyUserPageState extends State<VerifyUserPage> {
                   margin: const EdgeInsets.all(20),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color(0xffB2B2B2),
-                        width: 4,
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Color(0xffB2B2B2),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        offset: new Offset(0.0, 20.0),
+                        blurRadius: 20.0,
                       ),
-                      borderRadius: BorderRadius.circular(20)),
+                    ],
+                  ),
                   child: Form(
                       key: _formKey,
                       child: Column(children: <Widget>[
@@ -111,6 +119,7 @@ class _VerifyUserPageState extends State<VerifyUserPage> {
                           //decoracion del textfield
                           decoration: const InputDecoration(
                             labelText: 'Ingrese su correo',
+                            icon: Icon(Icons.alternate_email),
                           ),
                           //validando el textfield
                           onSaved: (value) {

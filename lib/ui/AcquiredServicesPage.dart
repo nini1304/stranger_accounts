@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stranger_accounts/cubit/AcquiredCubit.dart';
 import 'package:stranger_accounts/cubit/AcquiredState.dart';
+import 'package:stranger_accounts/ui/widget/AcquiredCard.dart';
 import '../cubit/PageStatus.dart';
 //page to show the acquired services
 
@@ -47,7 +48,16 @@ class _AcquiredServicesPageState extends State<AcquiredServicesPage> {
               itemCount: state.data.length,
               itemBuilder: (context, index) {
                 final item = state.data[index];
-                return ListTile();
+                return AcquiredCard(
+                  serviceId: state.data[index].serviceId,
+                  serviceName: state.data[index].serviceName,
+                  userId: state.data[index].userId,
+                  profileUsername: state.data[index].profileUsername,
+                  durationLabel: state.data[index].durationLabel,
+                  picture: state.data[index].picture,
+                  startDate: state.data[index].startDate,
+                  expirationDate: state.data[index].expirationDate,
+                );
               },
             );
           }
