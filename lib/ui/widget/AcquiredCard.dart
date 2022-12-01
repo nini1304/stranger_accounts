@@ -2,24 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AcquiredCard extends StatelessWidget {
-  /*final int serviceId;
+  final int serviceId;
+  final String serviceName;
   final int userId;
   final String profileUsername;
   final String durationLabel;
+  final String picture;
   final startDate;
-  final expirationDate;*/
-  const AcquiredCard({super.key});
-/*
+  final expirationDate;
+//  const AcquiredCard({super.key});
+
   AcquiredCard(
       {Key? key,
       required this.serviceId,
+      required this.serviceName,
       required this.userId,
       required this.profileUsername,
       required this.durationLabel,
+      required this.picture,
       required this.startDate,
       required this.expirationDate})
       : super(key: key);
-      */
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,14 +50,14 @@ class AcquiredCard extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  'articleConcept',
+                  "Servicio:" + serviceName.toString(),
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               Center(
                 child: Text(
-                  'gamePrice',
+                  "Plan:" + durationLabel,
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
@@ -70,12 +74,12 @@ class AcquiredCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Id del servicio: serviceId"),
-          Text("Id del usuario: userId"),
-          Text("Nombre de usuario: profileUsername"),
-          Text("Duración: durationLabel"),
-          Text("Fecha de inicio: startDate"),
-          Text("Fecha de expiración: expirationDate"),
+          Text("Id del servicio:" + serviceId.toString()),
+          Text("Id del usuario:" + userId.toString()),
+          Text("Nombre de usuario:" + profileUsername),
+          Text("Duración:" + durationLabel),
+          Text("Fecha de inicio:" + startDate.toString()),
+          Text("Fecha de expiración:" + expirationDate.toString()),
         ],
       ),
       actions: <Widget>[

@@ -48,7 +48,16 @@ class _AcquiredServicesPageState extends State<AcquiredServicesPage> {
               itemCount: state.data.length,
               itemBuilder: (context, index) {
                 final item = state.data[index];
-                return AcquiredCard();
+                return AcquiredCard(
+                  serviceId: state.data[index].serviceId,
+                  serviceName: state.data[index].serviceName,
+                  userId: state.data[index].userId,
+                  profileUsername: state.data[index].profileUsername,
+                  durationLabel: state.data[index].durationLabel,
+                  picture: state.data[index].picture,
+                  startDate: state.data[index].startDate,
+                  expirationDate: state.data[index].expirationDate,
+                );
               },
             );
           }
